@@ -21,7 +21,6 @@
       line-height: 1.6;
     }
 
-    /* Variabel tema (dark default) */
     :root {
       --bg-primary: #0a0a0a;
       --bg-secondary: #111111;
@@ -60,7 +59,6 @@
       color: var(--text-primary);
     }
 
-    /* Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -72,7 +70,6 @@
       border-radius: 4px;
     }
 
-    /* Header & Navigation */
     header {
       background: var(--nav-bg);
       backdrop-filter: blur(12px);
@@ -84,7 +81,6 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid var(--border-light);
-      transition: all 0.3s;
     }
 
     .logo {
@@ -98,8 +94,6 @@
     .logo span {
       color: var(--accent);
       background: none;
-      -webkit-background-clip: unset;
-      background-clip: unset;
     }
 
     nav a {
@@ -137,7 +131,6 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      transition: all 0.2s;
     }
     .theme-toggle i {
       font-size: 1rem;
@@ -151,7 +144,6 @@
       color: var(--text-primary);
     }
 
-    /* Hero */
     .hero {
       min-height: 85vh;
       display: flex;
@@ -198,7 +190,6 @@
       transform: translateY(-3px);
     }
 
-    /* Container */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -220,7 +211,25 @@
       border-radius: 3px;
     }
 
-    /* About Card */
+    /* Foto Profil */
+    .profile-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+      box-shadow: 0 0 20px var(--accent-glow);
+      transition: transform 0.3s;
+    }
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
     .about-card, .skills-container, .contact-card {
       background: var(--card-bg);
       backdrop-filter: blur(8px);
@@ -234,7 +243,6 @@
       box-shadow: var(--shadow);
     }
 
-    /* Skills */
     .skill-item {
       margin-bottom: 1.5rem;
     }
@@ -258,11 +266,12 @@
       transition: width 1.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
 
-    /* Projects Grid */
+    /* Projects */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
+      margin-bottom: 3rem;
     }
     .project-card {
       background: var(--card-bg);
@@ -274,7 +283,6 @@
     .project-card:hover {
       transform: translateY(-8px);
       border-color: var(--accent);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
     .project-img-wrapper {
       height: 200px;
@@ -325,7 +333,47 @@
       background: var(--btn-hover);
     }
 
-    /* Contact */
+    /* Sertifikat (dipindahkan ke bawah proyek) */
+    .certificates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .cert-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: all 0.3s;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .cert-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    .cert-icon {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .cert-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .cert-card p {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin-bottom: 0.3rem;
+    }
+    .cert-year {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
     .contact-card {
       display: flex;
       flex-wrap: wrap;
@@ -343,7 +391,6 @@
       color: var(--accent);
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
@@ -353,7 +400,6 @@
       font-size: 0.8rem;
     }
 
-    /* Music control */
     .music-control {
       position: fixed;
       bottom: 2rem;
@@ -368,19 +414,23 @@
       justify-content: center;
       cursor: pointer;
       box-shadow: 0 0 15px var(--accent-glow);
-      transition: all 0.3s;
       z-index: 1000;
     }
     .music-control:hover {
       transform: scale(1.1);
     }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 var(--accent-glow); }
-      70% { box-shadow: 0 0 0 15px rgba(214,48,49,0); }
-      100% { box-shadow: 0 0 0 0 rgba(214,48,49,0); }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .menu-btn {
         display: block;
@@ -412,16 +462,9 @@
       .section-title {
         font-size: 1.8rem;
       }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      .profile-img {
+        width: 120px;
+        height: 120px;
       }
     }
   </style>
@@ -431,12 +474,11 @@
     <div class="logo">Mario<span>.Dev</span></div>
     <div class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
     <nav id="menuNav">
-    <a href="home.html" onclick="toggleMenu()">Home</a>
-    <a href="neptu.html" onclick="toggleMenu()">Neptu</a>
-    <a href="Caljawa.html" onclick="toggleMenu()">Kalender Jawa</a>
+      <a href="#home" onclick="toggleMenu()">Home</a>
       <a href="#about" onclick="toggleMenu()">Tentang</a>
       <a href="#skills" onclick="toggleMenu()">Keahlian</a>
       <a href="#projects" onclick="toggleMenu()">Proyek</a>
+      <a href="#certificates" onclick="toggleMenu()">Sertifikat</a>
       <a href="#contact" onclick="toggleMenu()">Kontak</a>
     </nav>
     <div class="theme-toggle" id="themeToggle">
@@ -455,6 +497,11 @@
   </section>
 
   <div class="container">
+    <!-- Foto Profil -->
+    <div class="profile-wrapper">
+      <img src="https://i.ibb.co/d0XjYs7/avatar-placeholder.png" alt="Foto Profil" class="profile-img" onerror="this.src='https://via.placeholder.com/150?text=Profile'">
+    </div>
+
     <!-- About -->
     <section id="about">
       <h2 class="section-title">Tentang Saya</h2>
@@ -499,7 +546,7 @@
       </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Projects (sekarang sebelum sertifikat) -->
     <section id="projects">
       <h2 class="section-title">Proyek Unggulan</h2>
       <div class="projects">
@@ -510,7 +557,7 @@
           <div class="project-info">
             <span class="tag">Javanese App</span>
             <h3>Website Neptu</h3>
-            <p>Platform Cek Khodam & Neptu modern dengan UI/UX premium. Fitur ramalan kecocokan pasangan dan penentuan tanggal pernikahan berbasis Weton.</p>
+            <p>Platform Cek Khodam & Neptu modern dengan UI/UX premium. Fitur ramalan kecocokan pasangan.</p>
           </div>
         </div>
         <div class="project-card">
@@ -520,7 +567,7 @@
           <div class="project-info">
             <span class="tag">Web App</span>
             <h3>Aplikasi Kasir (POS)</h3>
-            <p>Sistem Point of Sale berbasis web dengan fitur manajemen stok, laporan penjualan real-time, dan antarmuka user-friendly.</p>
+            <p>Sistem Point of Sale dengan manajemen stok, laporan real-time.</p>
           </div>
         </div>
         <div class="project-card">
@@ -530,7 +577,7 @@
           <div class="project-info">
             <span class="tag">Marketing</span>
             <h3>Landing Page Produk</h3>
-            <p>Halaman landing page interaktif dengan konversi tinggi untuk meningkatkan penjualan produk digital.</p>
+            <p>Halaman interaktif konversi tinggi untuk produk digital.</p>
           </div>
         </div>
         <div class="project-card">
@@ -540,9 +587,40 @@
           <div class="project-info">
             <span class="tag">Utility</span>
             <h3>Aplikasi Kalender Jawa</h3>
-            <p>Aplikasi tanggal Masehi Jawa dengan detail hari pasaran, wuku, perhitungan hari baik dan ramadhan.</p>
-            <a href="https://files.appsgeyser.com/Kalender%20Jawa_19452331.apk?_gl=1*uu3dub*_ga*MTExODcxMzEwOS4xNzY4NTU3OTA0*_ga_WRFFFBGC4Z*czE3Njg3MTkzMjIkbzIkZzEkdDE3Njg3MTk0NjAkajUyJGwwJGgwJGQ2VGVuOHRjNG1qd0VzS0Z3LW13QWdmX084WFExR1hLT3JB" class="btn-download" download>Unduh Sekarang</a>
+            <p>Tanggal Masehi & Jawa, hari pasaran, wuku, ramadhan.</p>
+            <a href="https://files.appsgeyser.com/Kalender%20Jawa_19452331.apk" class="btn-download" download>Unduh Sekarang</a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sertifikat (dipindahkan ke bawah proyek) -->
+    <section id="certificates">
+      <h2 class="section-title">Sertifikat Kompetensi</h2>
+      <div class="certificates-grid">
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-code"></i></div>
+          <h3>Web Developer Professional</h3>
+          <p>Program Sertifikasi BNSP</p>
+          <p class="cert-year">2024</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fab fa-js"></i></div>
+          <h3>JavaScript Modern</h3>
+          <p>Dicoding Indonesia</p>
+          <p class="cert-year">2025</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-pen-fancy"></i></div>
+          <h3>UI/UX Design</h3>
+          <p>Google UX Design Certificate</p>
+          <p class="cert-year">2025</p>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon"><i class="fas fa-database"></i></div>
+          <h3>Backend Node.js</h3>
+          <p>Hacktiv8</p>
+          <p class="cert-year">2025</p>
         </div>
       </div>
     </section>
@@ -563,7 +641,6 @@
     <p>© 2026 Portofolio ZinXploit. All Rights Reserved.</p>
   </footer>
 
-  <!-- Music Player -->
   <div class="music-control" id="musicBtn" title="Play/Pause Music">
     <i class="fas fa-music"></i>
   </div>
@@ -572,7 +649,7 @@
   </audio>
 
   <script>
-    // ----- Theme Toggle -----
+    // Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
     const sunIcon = themeToggle.querySelector('.fa-sun');
     const moonIcon = themeToggle.querySelector('.fa-moon');
@@ -590,7 +667,6 @@
       localStorage.setItem('theme', theme);
     }
 
-    // Check local storage or system preference
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setTheme(savedTheme);
@@ -604,61 +680,46 @@
       setTheme(isLight ? 'dark' : 'light');
     });
 
-    // ----- Skill Bar Animation (Intersection Observer) -----
+    // Skill bar animation
     const skillsContainer = document.querySelector('.skills-container');
     const progressBars = document.querySelectorAll('.progress-bar');
-    
     const animateSkills = () => {
-      progressBars.forEach(bar => {
-        const width = bar.getAttribute('data-width');
-        bar.style.width = width;
-      });
+      progressBars.forEach(bar => bar.style.width = bar.getAttribute('data-width'));
     };
-    
     const resetSkills = () => {
       progressBars.forEach(bar => bar.style.width = '0');
     };
-    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateSkills();
-        } else {
-          resetSkills();
-        }
+        if (entry.isIntersecting) animateSkills();
+        else resetSkills();
       });
     }, { threshold: 0.2 });
-    
     if (skillsContainer) observer.observe(skillsContainer);
-    
-    // ----- Menu Mobile -----
+
+    // Mobile menu
     function toggleMenu() {
       document.getElementById('menuNav').classList.toggle('show');
     }
-    
-    // ----- Music Player -----
+
+    // Music player
     const bgm = document.getElementById('bgm');
     const musicBtn = document.getElementById('musicBtn');
     const musicIcon = musicBtn.querySelector('i');
     let isPlaying = false;
-    
     bgm.volume = 0.3;
-    
+
     function toggleMusic() {
       if (isPlaying) {
         bgm.pause();
         musicIcon.className = 'fas fa-music';
       } else {
-        bgm.play().catch(e => console.log('Autoplay prevented:', e));
+        bgm.play().catch(e => console.log('Autoplay prevented'));
         musicIcon.className = 'fas fa-pause';
       }
       isPlaying = !isPlaying;
     }
-    
     musicBtn.addEventListener('click', toggleMusic);
-    
-    // Auto-play attempt (user interaction required in modern browsers, so only on click)
-    // Add a small hint: first click anywhere will also start? optional.
     document.body.addEventListener('click', function initAudio() {
       if (!isPlaying && bgm.paused) {
         bgm.play().then(() => {
@@ -668,9 +729,9 @@
       }
       document.body.removeEventListener('click', initAudio);
     }, { once: true });
-    
-    // ----- Scroll Animation for Cards -----
-    const animatedElements = document.querySelectorAll('.project-card, .about-card, .contact-card');
+
+    // Scroll animations
+    const animatedElements = document.querySelectorAll('.project-card, .about-card, .contact-card, .cert-card');
     const scrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
